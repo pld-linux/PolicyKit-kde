@@ -14,10 +14,12 @@ Group:		X11/Applications
 # get it via: svn co svn://anonsvn.kde.org/home/kde/trunk/playground/base/PolicyKit-kde
 Source0:	%{name}-%{snap}.tar.gz
 # Source0-md5:	dc40e0659cb2152eb3d2278948804af5
+BuildRequires:	PolicyKit-devel
 BuildRequires:	Qt3Support-devel >= %{qt_ver}
 BuildRequires:	QtCore-devel >= %{qt_ver}
 BuildRequires:	QtDBus-devel >= %{qt_ver}
 BuildRequires:	QtGui-devel >= %{qt_ver}
+BuildRequires:	automoc4
 BuildRequires:	cmake >= 2.6.1-2
 BuildRequires:	qt4-build >= %{qt_ver}
 BuildRequires:	qt4-qmake >= %{qt_ver}
