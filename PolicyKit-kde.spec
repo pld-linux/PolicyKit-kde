@@ -57,11 +57,3 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root)	%{_bindir}/policykit-kde
 %{_datadir}/autostart/policykit-kde.desktop
-
-%changelog
-* %{date} PLD Team <feedback@pld-linux.org>
-All persons listed below can be reached at <cvs_login>@pld-linux.org
-
-$Log: PolicyKit-kde.spec,v $
-Revision 1.1  2008-11-05 19:48:16  shadzik
-- init
