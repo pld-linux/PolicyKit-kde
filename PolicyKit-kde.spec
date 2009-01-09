@@ -1,8 +1,8 @@
 #
 # Conditional build:
 #
-%define		qt_ver		4.4.1
-%define		snap		884911
+%define		qt_ver		4.4.3
+%define		snap		908332
 
 Summary:	PolicyKit-kde
 Summary(pl.UTF-8):	PolicyKit-kde
@@ -11,16 +11,16 @@ Version:	0
 Release:	0.%{snap}.1
 License:	GPL v2
 Group:		X11/Applications
-# get it via: svn co svn://anonsvn.kde.org/home/kde/trunk/playground/base/PolicyKit-kde
+# get it via: svn co svn://anonsvn.kde.org/home/kde/trunk/extragear/base/PolicyKit-kde
 Source0:	%{name}-%{snap}.tar.gz
-# Source0-md5:	e0a61130c0097093527a6c63e5328f69
+# Source0-md5:	076fdd431e831962aca46e47144845ef
 BuildRequires:	PolicyKit-devel
 BuildRequires:	Qt3Support-devel >= %{qt_ver}
 BuildRequires:	QtCore-devel >= %{qt_ver}
 BuildRequires:	QtDBus-devel >= %{qt_ver}
 BuildRequires:	QtGui-devel >= %{qt_ver}
 BuildRequires:	automoc4
-BuildRequires:	cmake >= 2.6.1-2
+BuildRequires:	cmake >= 2.6.2
 BuildRequires:	qt4-build >= %{qt_ver}
 BuildRequires:	qt4-qmake >= %{qt_ver}
 BuildRequires:	rpmbuild(macros) >= 1.293
@@ -55,9 +55,16 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
+
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root)	%{_bindir}/polkit-kde-authorization
-%attr(755,root,root)	%{_bindir}/polkit-kde-manager
+%attr(755,root,root) %{_bindir}/polkit-kde-authorization
+%attr(755,root,root) %ghost %{_libdir}/libpolkitkdeprivate.so.4
+%attr(755,root,root) %{_libdir}/libpolkitkdeprivate.so.4.2.0
+%attr(755,root,root) %{_libdir}/kde4/kcm_pkk_authorization.so
+%attr(755,root,root) %{_libdir}/kde4/libexec/polkit-kde-manager
+%{_datadir}/kde4/services/kcm_pkk_authorization.desktop
 %{_datadir}/dbus-1/services/kde-org.freedesktop.PolicyKit.AuthenticationAgent.service
 %{_datadir}/dbus-1/services/org.kde.PolicyKit.service
