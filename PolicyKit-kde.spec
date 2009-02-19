@@ -2,7 +2,7 @@
 # Conditional build:
 #
 %define		qt_ver		4.4.3
-%define		snap		908332
+%define		snap		928657
 
 Summary:	PolicyKit-kde
 Summary(pl.UTF-8):	PolicyKit-kde
@@ -13,7 +13,7 @@ License:	GPL v2
 Group:		X11/Applications
 # get it via: svn co svn://anonsvn.kde.org/home/kde/trunk/extragear/base/PolicyKit-kde
 Source0:	%{name}-%{snap}.tar.gz
-# Source0-md5:	076fdd431e831962aca46e47144845ef
+# Source0-md5:	78e56e43ae330be8b99050a78f035ca7
 BuildRequires:	PolicyKit-devel
 BuildRequires:	Qt3Support-devel >= %{qt_ver}
 BuildRequires:	QtCore-devel >= %{qt_ver}
@@ -65,6 +65,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libpolkitkdeprivate.so.4.2.0
 %attr(755,root,root) %{_libdir}/kde4/kcm_pkk_authorization.so
 %attr(755,root,root) %{_libdir}/kde4/libexec/polkit-kde-manager
+%attr(755,root,root) %ghost %{_libdir}/libpolkit-qt.so.0
+%attr(755,root,root) %{_libdir}/libpolkit-qt.so.0.9.0
 %{_datadir}/kde4/services/kcm_pkk_authorization.desktop
 %{_datadir}/dbus-1/services/kde-org.freedesktop.PolicyKit.AuthenticationAgent.service
 %{_datadir}/dbus-1/services/org.kde.PolicyKit.service
