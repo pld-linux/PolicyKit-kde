@@ -2,13 +2,14 @@
 # Conditional build:
 #
 %define		qt_ver		4.4.3
+%define		kdever		4.2.0
 %define		snap		928657
 
 Summary:	PolicyKit-kde
 Summary(pl.UTF-8):	PolicyKit-kde
 Name:		PolicyKit-kde
 Version:	0
-Release:	0.%{snap}.1
+Release:	0.%{snap}.2
 License:	GPL v2
 Group:		X11/Applications
 # get it via: svn co svn://anonsvn.kde.org/home/kde/trunk/extragear/base/PolicyKit-kde
@@ -21,6 +22,7 @@ BuildRequires:	QtDBus-devel >= %{qt_ver}
 BuildRequires:	QtGui-devel >= %{qt_ver}
 BuildRequires:	automoc4
 BuildRequires:	cmake >= 2.6.2
+BuildRequires:	kde4-kdelibs-devel >= %{kdever}
 BuildRequires:	qt4-build >= %{qt_ver}
 BuildRequires:	qt4-qmake >= %{qt_ver}
 BuildRequires:	rpmbuild(macros) >= 1.293
